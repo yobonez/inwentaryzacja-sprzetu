@@ -1,0 +1,26 @@
+{
+  "name": "inwentaryzacja",
+  "version": "1.0.0",
+  "description": "Inwentaryzacja sprzetu komputerowego w firmie informatycznej",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yobonez/inwentaryzacja-sprzetu.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/yobonez/inwentaryzacja-sprzetu/issues"
+  },
+  "homepage": "https://github.com/yobonez/inwentaryzacja-sprzetu#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
