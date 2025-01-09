@@ -1,1 +1,22 @@
 @import url(../../globalStyles/main.css);
+
+#container p {
+    font-size: 90%;
+}
+
+#print-button {
+    margin-top: 1%;
+    font-size: 80%;
+    padding: 1%;
+    border: 1px solid black;
+}
+
+@media print {
+    header, main menu, #print-button {
+        display: none !important;
+    }
+
+    #container {
+        display: block !important;
+    }
+}
