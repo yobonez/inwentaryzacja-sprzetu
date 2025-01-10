@@ -17,12 +17,3 @@ export function reverseDateFormat() {
     const currentDate = new Date();
     return formatter.format(currentDate);
 }
-
-export function setDocumentTitleAndPrint() {
-    // Set the dynamic title
-    document.write("test")
-    // document.title = "Historia Zmian w systemie inwentaryzacja " + reverseDateFormat();
-
-    // // Trigger the print dialog
-    // window.print();
-}
