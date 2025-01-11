@@ -1,1 +1,5 @@
 @import url(../../globalStyles/main.css);
+
+#container {
+    text-align: left !important;
+}
