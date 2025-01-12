@@ -1,0 +1,45 @@
+:root {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 110% !important;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 1) !important;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(236, 240, 246, 1) 100%);
+}
+
+header:first-child {
+    text-align: center;
+    padding: 1%;
+}
+
+#title-of-page {
+    margin-top: 2%;
+    text-shadow: 0px 0px 2px rgba(150, 136, 136, 1);
+    font-weight: bold;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 1);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(236, 240, 246, 1) 100%);
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+main menu {
+    width: 100%;
+    margin: 0;
+    padding: 2%;
+}
+
+#container {
+    text-align: center;
+    padding: 3%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(236, 236, 236, 1) 100%);
+}
