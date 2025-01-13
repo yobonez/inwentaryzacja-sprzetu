@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/yobonez/inwentaryzacja-sprzetu#readme",
   "dependencies": {
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
