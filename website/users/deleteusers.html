@@ -53,24 +53,32 @@
                 </ul>
             </div>
 
-            <div id="container" class="p-3">
-                <h2>Usuń użytkownika</h2>
-                <p>Wybierz użytkownika, którego chcesz usunąć:</p>
-                <ul class="list-group" id="user-list">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Jan Kowalski
-                        <button class="btn btn-danger btn-sm" onclick="deleteUser('Jan Kowalski')">Usuń</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Anna Nowak
-                        <button class="btn btn-danger btn-sm" onclick="deleteUser('Anna Nowak')">Usuń</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Piotr Wiśniewski
-                        <button class="btn btn-danger btn-sm" onclick="deleteUser('Piotr Wiśniewski')">Usuń</button>
-                    </li>
-                </ul>
+
+            <h4 id="title-of-page" class="text-center my-4">Usuń użytkownika</h4>
+
+            <p class="text-center">Wybierz użytkownika, którego chcesz usunąć:</p>
+
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nazwa użytkownika</th>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
+                            <th>Rola</th>
+                            <th>Akcja</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                       
+                    </tbody>
+                </table>
             </div>
+        </main>
+        <script src="scripts/main.js"></script>
 
         </main>
 
