@@ -5,6 +5,8 @@ const apiRoutes = require('./api/routes');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+app.use(express.json())
 // zawartość folderu "website" dostępna publicznie (zasób statyczny w ExpressJS)
 // 127.0.0.1:3000/index.html,
 // 127.0.0.1:3000/css/style.css itp itd
