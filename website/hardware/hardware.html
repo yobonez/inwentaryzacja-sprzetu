@@ -40,10 +40,100 @@
                     </li>
                 </ul>
             </menu>
-            <div id="container">
-                <p>Content Content</p>
-                <p>Content Content</p>
-                <p>Content Content</p>
+            <div id="container" class="container mt-4">
+                <h2>Dodaj nowy sprzęt</h2>
+                <form id="new-hardware-form" class="needs-validation" novalidate>
+                    
+                    <div class="mb-3">
+                        <label for="deviceName" class="form-label">Nazwa urządzenia</label>
+                        <select class="form-select" id="deviceName" required>
+                            <option selected disabled value="">Wybierz nazwę urządzenia</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Printer">Drukarka</option>
+                            <option value="Monitor">Monitor</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybrać nazwę urządzenia.
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="mb-3">
+                        <label for="deviceType" class="form-label">Typ urządzenia</label>
+                        <select class="form-select" id="deviceType" required>
+                            <option selected disabled value="">Wybierz typ urządzenia</option>
+                            <option value="Electronics">Elektronika</option>
+                            <option value="Peripheral">Urządzenia peryferyjne</option>
+                            <option value="Networking">Sieciowe</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybrać typ urządzenia.
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Lokalizacja</label>
+                        <select class="form-select" id="location" required>
+                            <option selected disabled value="">Wybierz lokalizację</option>
+                            <option value="Office">Biuro</option>
+                            <option value="Warehouse">Magazyn</option>
+                            <option value="ServerRoom">Serwerownia</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybrać lokalizację.
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Stanowisko</label>
+                        <select class="form-select" id="position" required>
+                            <option selected disabled value="">Wybierz stanowisko</option>
+                            <option value="1">Stanowisko 1</option>
+                            <option value="2">Stanowisko 2</option>
+                            <option value="3">Stanowisko 3</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybrać stanowisko.
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="serialNumber" class="form-label">Numer seryjny</label>
+                        <input type="text" class="form-control" id="serialNumber" maxlength="50" pattern="^[a-zA-Z0-9-]+$" required>
+                        <div class="invalid-feedback">
+                            Proszę podać poprawny numer seryjny (bez znaków specjalnych).
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="technicalSpecs" class="form-label">Specyfikacja techniczna</label>
+                        <textarea class="form-control" id="technicalSpecs" rows="4" required></textarea>
+                        <div class="invalid-feedback">
+                            Proszę podać specyfikację techniczną.
+                        </div>
+                    </div>
+
+                    
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" required>
+                            <option selected disabled value="">Wybierz status</option>
+                            <option value="active">Aktywny</option>
+                            <option value="temporarily_unavailable">Tymczasowo niedostępny</option>
+                            <option value="archived">Zarchiwizowany</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Proszę wybrać status.
+                        </div>
+                    </div>
+
+                    
+                    <button type="submit" class="btn btn-primary">Zatwierdź</button>
+                </form>
             </div>
         </main>
 
