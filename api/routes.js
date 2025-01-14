@@ -49,7 +49,25 @@ router.post('/createUser', async (req, res) => {
     }
 })
 
+router.delete('/deleteUser', async (req, res) => {
+    try {
+        const { id } = req.body;  
+        console.log("Received id to delete:", id); 
 
+        const deletedUser = await UserQuery.deleteUserById(id); 
+
+        if (deletedUser) {
+            console.log("User deleted successfully:", deletedUser); 
+            res.status(200).json({ message: 'User deleted successfully' }); 
+        } else {
+            console.log("User not found with id:", id); 
+            res.status(404).json({ error: 'User not found' }); 
+        }
+    } catch (err) {
+        console.error('Error during deletion:', err); 
+        res.status(500).json({ error: `Database error: ${err.message}` }); 
+    }
+});
 
 
 module.exports = router;

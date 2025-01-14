@@ -33,6 +33,18 @@ const UserQuery = {
         const result = await db.query(query, [id]);
         if (result.rows.length === 0) return null;
         return UserModel.fromRow(result.rows[0]);
+    },
+
+
+    async deleteUserById(id) {
+        const query = `DELETE FROM system_users WHERE id = $1 RETURNING *`;
+        const result = await db.query(query, [id]);
+
+        if (result.rows.length === 0) {
+
+            return null;
+        }
+        return UserModel.fromRow(result.rows[0]); 
     }
 };
 
