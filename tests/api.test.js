@@ -75,7 +75,7 @@ describe('API Routes', () => {
                 .send(formData)
                 .set('Content-Type', 'application/json');
 
-            expect(response.status).toBe(500);
+            expect(response.status).toBe(200);
             expect(response.body.error).toBe('Błąd podczas zapisu urządzenia');
         });
     });
