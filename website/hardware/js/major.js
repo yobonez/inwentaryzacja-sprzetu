@@ -1,4 +1,4 @@
-import { LaptopStrategy, PrinterStrategy, MonitorStrategy } from "./DeviceStrategy.js";
+import { LaptopStrategy, PrinterStrategy, MonitorStrategy } from "./DeviceStrategy.js"; 
 import { DeviceContext } from "./DeviceContext.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -7,17 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const context = new DeviceContext();
 
-  
   const strategies = {
     Laptop: new LaptopStrategy(),
     Printer: new PrinterStrategy(),
     Monitor: new MonitorStrategy(),
   };
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault(); 
 
-    
     const formData = {
       deviceName: deviceNameSelect.value,
       deviceType: document.getElementById("deviceType").value,
@@ -35,6 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
       context.processFormData(formData);
     } else {
       alert("Nie wybrano poprawnej strategii dla urządzenia.");
+    }
+
+    
+    try {
+      const response = await fetch('/api/saveDevice', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), 
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(result.message || 'Dane zostały zapisane!');
+      } else {
+        const error = await response.json();
+        alert(error.error || 'Błąd podczas zapisywania danych.');
+      }
+    } catch (err) {
+      console.error('Błąd przy wysyłaniu danych:', err);
+      alert('Wystąpił błąd podczas wysyłania danych.');
     }
   });
 });
