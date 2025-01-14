@@ -4,6 +4,9 @@ const router = express.Router();
 const UserModel = require('../db/models/UserModel');
 const UserQuery = require('../db/queries/UserQuery');
 
+const DeviceModel = require('../db/models/DeviceModel');
+const DeviceQuery = require('../db/queries/DeviceQuery');
+
 router.get('/users', async (req, res) => {
     try {
         const users = await UserQuery.getAllUsers();
@@ -49,7 +52,24 @@ router.post('/createUser', async (req, res) => {
     }
 })
 
+router.post('/saveDevice', async (req, res) => {
+    try {
+        
+        const { deviceName, deviceType, location, position, serialNumber, technicalSpecs, status } = req.body;
 
+        
+        const newDevice = new DeviceModel(null, deviceName, deviceType, location, position, serialNumber, technicalSpecs, status);
+
+        
+        const createdDevice = await DeviceQuery.createDevice(newDevice);
+
+        
+        res.status(200).json({ message: 'Urządzenie zapisane pomyślnie!', device: createdDevice });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Błąd podczas zapisu urządzenia' });
+    }
+});
 
 
 module.exports = router;

@@ -1,15 +1,9 @@
 const request = require('supertest');
-const app = require('../index'); // całe api
-
+const app = require('../index'); 
 
 describe('API Routes', () => {
     
-    // test('GET /api/hello should return a JSON response', async () => {
-    //     const response = await request(app).get('/api/hello');
-    //     expect(response.status).toBe(200);
-    //     expect(response.body).toHaveProperty('message', 'Hello from API!');
-    // });
-
+    
     test('GET /api/users should return all users in json', async () => {
         const response = await request(app).get('/api/users');
         expect(response.status).toBe(200);
@@ -24,8 +18,10 @@ describe('API Routes', () => {
             expect(user).toHaveProperty('phone');
             expect(user).toHaveProperty('role'); 
         });
-    })
-    test('GET /api/getUser should return a user', async() => {
+    });
+
+    
+    test('GET /api/getUser should return a user', async () => {
         const response = await request(app).post('/api/getUser').send({id: 1});
         expect(response.status).toBe(200);
 
@@ -37,9 +33,50 @@ describe('API Routes', () => {
         expect(response.body).toHaveProperty('email');
         expect(response.body).toHaveProperty('phone');
         expect(response.body).toHaveProperty('role'); 
-    })
-    // test('POST /api/createUser ', async() => {
-    //     const response = await request(app).post('/api/createUser');
-        
-    // })
+    });
+
+    
+    describe('POST /api/saveDevice', () => {
+        it('should save the device data and return success message', async () => {
+            const formData = {
+                deviceName: 'Laptop',
+                deviceType: 'LaptopType',
+                location: 'Office',
+                position: 'Position 1',
+                serialNumber: '123456',
+                technicalSpecs: 'Intel i7, 16GB RAM',
+                status: 'Active',
+            };
+
+            const response = await request(app)
+                .post('/api/saveDevice')
+                .send(formData)
+                .set('Content-Type', 'application/json');
+
+            expect(response.status).toBe(200);
+            expect(response.body.message).toBe('Urządzenie zapisane pomyślnie!');
+            expect(response.body.device.deviceName).toBe('Laptop');
+        });
+
+        it('should return error if there is a problem saving the device', async () => {
+            const formData = {
+                deviceName: 'Laptop',
+                deviceType: 'LaptopType',
+                location: 'Office',
+                position: 'Position 1',
+                serialNumber: '123456',
+                technicalSpecs: 'Intel i7, 16GB RAM',
+                status: 'Active',
+            };
+
+            
+            const response = await request(app)
+                .post('/api/saveDevice')
+                .send(formData)
+                .set('Content-Type', 'application/json');
+
+            expect(response.status).toBe(200);
+            expect(response.body.error).toBe('Błąd podczas zapisu urządzenia');
+        });
+    });
 });
