@@ -4,7 +4,7 @@ const router = express.Router();
 const UserModel = require('../db/models/UserModel');
 const UserQuery = require('../db/queries/UserQuery');
 
-const DeviceModel = require('../db/models/DeviceModel.js');
+const DeviceModel = require('../db/models/DeviceModel');
 const DeviceQuery = require('../db/queries/DeviceQuery');
 
 router.get('/users', async (req, res) => {
