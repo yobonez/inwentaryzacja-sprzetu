@@ -80,3 +80,41 @@ describe('API Routes', () => {
         });
     });
 });
+
+
+describe('API Routes - DELETE /api/deleteUser', () => {
+
+    test('DELETE /api/deleteUser should return success message when user is deleted', async () => {
+        const userIdToDelete = 18; 
+
+        const response = await request(app)
+            .delete('/api/deleteUser')
+            .send({ id: userIdToDelete });  
+
+        expect(response.status).toBe(200);
+        expect(response.body.message).toBe('User deleted successfully');
+    });
+
+    test('DELETE /api/deleteUser should return 404 when user is not found', async () => {
+        const nonExistentUserId = 999; 
+
+        const response = await request(app)
+            .delete('/api/deleteUser')
+            .send({ id: nonExistentUserId });
+
+        expect(response.status).toBe(404);
+        expect(response.body.error).toBe('User not found');
+    });
+
+    test('DELETE /api/deleteUser should return 400 if no ID is provided', async () => {
+        const response = await request(app)
+            .delete('/api/deleteUser')
+            .send({}); // Nie podajemy ID
+    
+        // Sprawdzamy, czy odpowiedź ma status 400
+        expect(response.status).toBe(400);
+        // Sprawdzamy, czy odpowiedź zawiera odpowiedni komunikat błędu
+        expect(response.body.error).toBe('User ID is required');
+    });
+
+});

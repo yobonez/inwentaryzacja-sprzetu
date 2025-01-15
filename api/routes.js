@@ -57,6 +57,10 @@ router.delete('/deleteUser', async (req, res) => {
         const { id } = req.body;  
         console.log("Received id to delete:", id); 
 
+        if (!id) {
+            return res.status(400).json({ error: 'User ID is required' });
+        }
+
         const deletedUser = await UserQuery.deleteUserById(id); 
 
         if (deletedUser) {
