@@ -85,7 +85,7 @@ describe('API Routes', () => {
 describe('API Routes - DELETE /api/deleteUser', () => {
 
     test('DELETE /api/deleteUser should return success message when user is deleted', async () => {
-        const userIdToDelete = 18; 
+        const userIdToDelete = 20; 
 
         const response = await request(app)
             .delete('/api/deleteUser')
