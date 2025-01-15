@@ -109,11 +109,10 @@ describe('API Routes - DELETE /api/deleteUser', () => {
     test('DELETE /api/deleteUser should return 400 if no ID is provided', async () => {
         const response = await request(app)
             .delete('/api/deleteUser')
-            .send({}); // Nie podajemy ID
+            .send({}); 
     
-        // Sprawdzamy, czy odpowiedź ma status 400
+
         expect(response.status).toBe(400);
-        // Sprawdzamy, czy odpowiedź zawiera odpowiedni komunikat błędu
         expect(response.body.error).toBe('User ID is required');
     });
 
