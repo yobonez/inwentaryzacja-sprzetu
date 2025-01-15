@@ -1,5 +1,5 @@
-import { DateFormatter } from "./DateFormatter.js";
-import { TimeFormatter } from "./TimeFormatter.js";
+import { DateFormatter } from "./dateFormatter.js";
+import { TimeFormatter } from "./timeFormatter.js";
 import { ReverseDateFormatter } from "./reverseDateFormatter.js";
 
 export class FormatterFactory {

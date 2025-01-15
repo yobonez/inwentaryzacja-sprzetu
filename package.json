@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Inwentaryzacja sprzetu komputerowego w firmie informatycznej",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -20,6 +21,9 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "supertest": "^7.0.0"
   }
